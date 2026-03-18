@@ -753,6 +753,7 @@ function closeModal() {
     tb.style.display = "block";
     tb.style.animation = "fadeUp .35s ease";
   }
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 
 // Close on overlay click
@@ -1151,6 +1152,7 @@ function startPractice(a){
   document.getElementById("nav-back").style.display="inline-block";
   document.getElementById("next-btn").style.background=COLORS[a];
   buildMap(); renderQ();
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 
 function renderQ(){
@@ -1205,12 +1207,13 @@ function pick(sel){
   history.push({q:q.q, correct:ok});
 }
 
-function nextQ(){ qi++; if(qi>=qs.length){ showResults(); return; } renderQ(); }
+function nextQ(){ qi++; if(qi>=qs.length){ showResults(); return; } renderQ(); window.scrollTo({top:0, behavior:'smooth'}); }
 
 function showResults(){
   document.getElementById("practice").style.display="none";
   const r=document.getElementById("results");
   r.style.display="flex";
+  window.scrollTo({top:0, behavior:'smooth'});
   const pct=Math.round(score/qs.length*100);
   const rp=document.getElementById("res-pct");
   rp.textContent=pct+"%";
@@ -1241,6 +1244,7 @@ function goHome(){
   document.getElementById("nav-title").textContent="Uninformed Search Practice";
   document.getElementById("nav-title").style.color="var(--ksu)";
   document.getElementById("home").style.display="flex";
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 </script>
 </body>
